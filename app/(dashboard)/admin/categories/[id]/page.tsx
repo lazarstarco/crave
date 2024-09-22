@@ -22,7 +22,7 @@ const DashboardSingleCategory = ({
     const requestOptions = {
       method: "DELETE",
     };
-    // sending API request for deleting a category
+
     fetch(`http://localhost:3001/api/categories/${id}`, requestOptions)
       .then((response) => {
         if (response.status === 204) {
@@ -46,7 +46,7 @@ const DashboardSingleCategory = ({
           name: convertCategoryNameToURLFriendly(categoryInput.name),
         }),
       };
-      // sending API request for updating a category
+
       fetch(`http://localhost:3001/api/categories/${id}`, requestOptions)
         .then((response) => {
           if (response.status === 200) {
@@ -66,7 +66,6 @@ const DashboardSingleCategory = ({
   };
 
   useEffect(() => {
-    // sending API request for getting single categroy
     fetch(`http://localhost:3001/api/categories/${id}`)
       .then((res) => {
         return res.json();

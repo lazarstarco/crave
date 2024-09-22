@@ -1,15 +1,4 @@
 "use client";
-
-
-
-
-
-
-
-
-
-
-
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
@@ -30,7 +19,6 @@ const AdminOrders = () => {
       <h1 className="text-3xl font-semibold text-center mb-5">All orders</h1>
       <div className="overflow-x-auto">
         <table className="table table-md table-pin-cols">
-          {/* head */}
           <thead>
             <tr>
               <th>Order ID</th>
@@ -42,7 +30,6 @@ const AdminOrders = () => {
             </tr>
           </thead>
           <tbody>
-            {/* row 1 */}
             {orders &&
               orders.map((order) => (
                 <tr key={order?.id}>
@@ -56,7 +43,9 @@ const AdminOrders = () => {
                     <div className="flex items-center gap-5">
                       <div>
                         <div className="font-bold">{order?.name}</div>
-                        <div className="text-sm opacity-50">{order?.country}</div>
+                        <div className="text-sm opacity-50">
+                          {order?.country}
+                        </div>
                       </div>
                     </div>
                   </td>
@@ -71,7 +60,9 @@ const AdminOrders = () => {
                     <p>${order?.total}</p>
                   </td>
 
-                  <td>{ new Date(Date.parse(order?.dateTime)).toDateString() }</td>
+                  <td>
+                    {new Date(Date.parse(order?.dateTime)).toDateString()}
+                  </td>
                   <th>
                     <Link
                       href={`/admin/orders/${order?.id}`}
@@ -83,7 +74,6 @@ const AdminOrders = () => {
                 </tr>
               ))}
           </tbody>
-          {/* foot */}
           <tfoot>
             <tr>
               <th>Order ID</th>

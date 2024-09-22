@@ -71,10 +71,10 @@ async function getProductOrder(request, response) {
   const { id } = request.params;
   const order = await prisma.customer_order_product.findMany({
     where: {
-      customerOrderId: id, // Use customerOrderId for searching
+      customerOrderId: id,
     },
     include: {
-      product: true, // Including information about a product for response
+      product: true,
     },
   });
   if (!order) {
@@ -85,7 +85,6 @@ async function getProductOrder(request, response) {
 
 async function getAllProductOrders(request, response) {
   try {
-    // Getting all orders from customer_order_product table
     const productOrders = await prisma.customer_order_product.findMany({
       select: {
         productId: true,
@@ -109,15 +108,12 @@ async function getAllProductOrders(request, response) {
       },
     });
 
-    // Creating map for storing data about orders grouped by customerOrderId
     const ordersMap = new Map();
 
-    // Iterating through all orders
     for (const order of productOrders) {
       const { customerOrder, productId, quantity } = order;
       const { id, ...orderDetails } = customerOrder;
 
-      // Finding a product from the table Product with productId
       const product = await prisma.product.findUnique({
         where: {
           id: productId,
@@ -132,10 +128,8 @@ async function getAllProductOrders(request, response) {
       });
 
       if (ordersMap.has(id)) {
-        // If there is input for customerOrderId, add a new product in existing map array
         ordersMap.get(id).products.push({ ...product, quantity });
       } else {
-        // Otherwise create new input for customerOrderId and add the product
         ordersMap.set(id, {
           customerOrderId: id,
           customerOrder: orderDetails,
@@ -144,7 +138,6 @@ async function getAllProductOrders(request, response) {
       }
     }
 
-    // Converting map to object array
     const groupedOrders = Array.from(ordersMap.values());
 
     return response.json(groupedOrders);

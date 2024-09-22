@@ -22,7 +22,6 @@ const DashboardProductDetails = ({
   const [otherImages, setOtherImages] = useState<OtherImages[]>([]);
   const router = useRouter();
 
-  // functionality for deleting product
   const deleteProduct = async () => {
     const requestOptions = {
       method: "DELETE",
@@ -32,7 +31,7 @@ const DashboardProductDetails = ({
         if (response.status !== 204) {
           if (response.status === 400) {
             toast.error(
-              "Cannot delete the product because of foreign key constraint"
+              "Cannot delete the product because of foreign key constraint",
             );
           } else {
             throw Error("There was an error while deleting product");
@@ -47,7 +46,6 @@ const DashboardProductDetails = ({
       });
   };
 
-  // functionality for updating product
   const updateProduct = async () => {
     if (
       product?.title === "" ||
@@ -79,7 +77,6 @@ const DashboardProductDetails = ({
       });
   };
 
-  // functionality for uploading main image file
   const uploadFile = async (file: any) => {
     const formData = new FormData();
     formData.append("uploadedFile", file);
@@ -101,7 +98,6 @@ const DashboardProductDetails = ({
     }
   };
 
-  // fetching main product data including other product images
   const fetchProductData = async () => {
     fetch(`http://localhost:3001/api/products/${id}`)
       .then((res) => {
@@ -118,7 +114,6 @@ const DashboardProductDetails = ({
     setOtherImages((currentImages) => images);
   };
 
-  // fetching all product categories. It will be used for displaying categories in select category input
   const fetchCategories = async () => {
     fetch(`http://localhost:3001/api/categories`)
       .then((res) => {
@@ -139,7 +134,6 @@ const DashboardProductDetails = ({
       <DashboardSidebar />
       <div className="flex flex-col gap-y-7 xl:ml-5 w-full max-xl:px-5">
         <h1 className="text-3xl font-semibold">Product details</h1>
-        {/* Product name input div - start */}
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
@@ -155,9 +149,6 @@ const DashboardProductDetails = ({
             />
           </label>
         </div>
-        {/* Product name input div - end */}
-        {/* Product price input div - start */}
-
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
@@ -173,8 +164,6 @@ const DashboardProductDetails = ({
             />
           </label>
         </div>
-        {/* Product price input div - end */}
-        {/* Product manufacturer input div - start */}
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
@@ -190,9 +179,6 @@ const DashboardProductDetails = ({
             />
           </label>
         </div>
-        {/* Product manufacturer input div - end */}
-        {/* Product slug input div - start */}
-
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
@@ -211,9 +197,6 @@ const DashboardProductDetails = ({
             />
           </label>
         </div>
-        {/* Product slug input div - end */}
-        {/* Product inStock select input div - start */}
-
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
@@ -231,8 +214,6 @@ const DashboardProductDetails = ({
             </select>
           </label>
         </div>
-        {/* Product inStock select input div - end */}
-        {/* Product category select input div - start */}
         <div>
           <label className="form-control w-full max-w-xs">
             <div className="label">
@@ -257,9 +238,6 @@ const DashboardProductDetails = ({
             </select>
           </label>
         </div>
-        {/* Product category select input div - end */}
-
-        {/* Main image file upload div - start */}
         <div>
           <input
             type="file"
@@ -283,8 +261,6 @@ const DashboardProductDetails = ({
             />
           )}
         </div>
-        {/* Main image file upload div - end */}
-        {/* Other images file upload div - start */}
         <div className="flex gap-x-1">
           {otherImages &&
             otherImages.map((image) => (
@@ -298,8 +274,6 @@ const DashboardProductDetails = ({
               />
             ))}
         </div>
-        {/* Other images file upload div - end */}
-        {/* Product description div - start */}
         <div>
           <label className="form-control">
             <div className="label">
@@ -314,8 +288,6 @@ const DashboardProductDetails = ({
             ></textarea>
           </label>
         </div>
-        {/* Product description div - end */}
-        {/* Action buttons div - start */}
         <div className="flex gap-x-2 max-sm:flex-col">
           <button
             type="button"
@@ -332,7 +304,6 @@ const DashboardProductDetails = ({
             Delete product
           </button>
         </div>
-        {/* Action buttons div - end */}
         <p className="text-xl max-sm:text-lg text-error">
           To delete the product you first need to delete all its records in
           orders (customer_order_product table).

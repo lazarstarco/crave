@@ -6,7 +6,7 @@ async function getAllWishlist(request, response) {
   try {
     const wishlist = await prisma.wishlist.findMany({
       include: {
-        product: true, // Include product details
+        product: true,
       },
     });
     return response.json(wishlist);
@@ -18,13 +18,12 @@ async function getAllWishlist(request, response) {
 async function getAllWishlistByUserId(request, response) {
   const { userId } = request.params;
   try {
-    // getting all products by userId
     const wishlist = await prisma.wishlist.findMany({
       where: {
         userId: userId,
       },
       include: {
-        product: true, // Include product details
+        product: true,
       },
     });
     return response.json(wishlist);

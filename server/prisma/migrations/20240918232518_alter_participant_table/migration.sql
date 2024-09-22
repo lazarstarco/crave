@@ -17,7 +17,8 @@ ALTER TABLE `participant` DROP COLUMN `createdAt`,
     DROP COLUMN `email`,
     DROP COLUMN `name`,
     DROP COLUMN `updatedAt`,
-    ADD COLUMN `userId` VARCHAR(191) NOT NULL;
+    ADD COLUMN `userId` VARCHAR(191) NOT NULL,
+    ADD COLUMN `mainImage` VARCHAR(191) NOT NULL;
 
 -- CreateIndex
 CREATE UNIQUE INDEX `Participant_userId_productId_key` ON `Participant`(`userId`, `productId`);

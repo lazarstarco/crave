@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 "use client";
 import { useProductStore } from "@/app/_zustand/store";
 import React from "react";

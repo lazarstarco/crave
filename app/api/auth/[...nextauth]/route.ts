@@ -3,8 +3,6 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import prisma from "@/utils/db";
 import { JWT } from "next-auth/jwt";
-
-
 interface CustomJWT extends JWT {
   id?: string;
   role?: string;
@@ -14,23 +12,20 @@ interface CustomUser {
   id: string;
   name: string;
   email: string;
-  role: string; // Custom field
+  role: string;
 }
-
-
 declare module "next-auth" {
   interface Session {
     user: {
       id: string;
       role: string;
-    } & DefaultSession["user"]; // Include default fields like name, email, etc.
+    } & DefaultSession["user"];
   }
 
   interface User {
     id: string;
     role: string;
   }
-
 }
 
 export const authOptions: NextAuthOptions = {
@@ -48,11 +43,14 @@ export const authOptions: NextAuthOptions = {
             where: { email: credentials?.email },
           });
 
-          if (user && bcrypt.compareSync(credentials?.password || "", user.password!)) {
+          if (
+            user &&
+            bcrypt.compareSync(credentials?.password || "", user.password!)
+          ) {
             return {
               id: user.id,
               email: user.email,
-              role: user.role, // Custom field
+              role: user.role,
             } as CustomUser;
           }
         } catch (err: any) {
@@ -65,21 +63,18 @@ export const authOptions: NextAuthOptions = {
   ],
 
   callbacks: {
-    // `jwt` callback to include custom fields in the token
     async jwt({ token, user }) {
       if (user) {
-        // On login, populate the token with custom fields
         token.id = user.id;
         token.role = user.role;
       }
       return token as CustomJWT;
     },
 
-    // `session` callback to include custom fields in the session
     async session({ session, token }) {
       if (token) {
-        session.user.id = token.id as string; // Ensure type assertion
-        session.user.role = token.role as string; // Ensure type assertion
+        session.user.id = token.id as string;
+        session.user.role = token.role as string;
       }
       return session;
     },

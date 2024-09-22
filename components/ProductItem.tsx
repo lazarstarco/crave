@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
@@ -21,7 +11,7 @@ const ProductItem = ({
   color: string;
 }) => {
   return (
-    <div className="flex flex-col items-center gap-y-2 p-2 border-2 border-white rounded-3xl">
+    <div className="flex flex-col items-center gap-y-2 p-2 border-2 border-white rounded-3xl w-3/4 h-full">
       <Link href={`/product/${product.slug}`}>
         <Image
           src={
@@ -49,8 +39,8 @@ const ProductItem = ({
       <p
         className={
           color === "black"
-            ? "text-lg text-black font-semibold"
-            : "text-lg text-white font-semibold"
+            ? "text-lg text-black font-semibold mt-auto"
+            : "text-lg text-white font-semibold mt-auto"
         }
       >
         {product.price} RSD

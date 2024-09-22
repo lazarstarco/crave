@@ -1,63 +1,51 @@
 export const categoryMenuList = [
   {
     id: 1,
-    title: "Smart Phones",
-    src: "/smart phone icon.png",
-    href: "/shop/smart-phones"
+    title: "Ženske majice",
+    src: "/zenske-majice.png",
+    href: "/shop/zenske-majice",
   },
   {
     id: 2,
-    title: "Tablets",
-    src: "/tablet icon.png",
-    href: "/shop/tablets"
+    title: "Korseti",
+    src: "/korseti.png",
+    href: "/shop/korseti",
   },
   {
     id: 3,
-    title: "Mouses",
-    src: "/mouse icon.png",
-    href: "/shop/mouses"
+    title: "Suknje",
+    src: "/suknje.png",
+    href: "/shop/suknje",
   },
   {
     id: 4,
-    title: "Cameras",
-    src: "/camera icon.png",
-    href: "/shop/cameras"
+    title: "Ženske pantalone",
+    src: "/zenske-pantalone.png",
+    href: "/shop/zenske-pantalone",
   },
   {
     id: 5,
-    title: "Smart Watches",
-    src: "/smart watch.png",
-    href: "/shop/watches"
+    title: "Muške majice",
+    src: "/muske-majice.png",
+    href: "/shop/muske-majice",
   },
   {
     id: 6,
-    title: "Laptops",
-    src: "/laptop icon.png",
-    href: "/shop/laptops"
+    title: "Muške pantalone",
+    src: "/muske-pantalone.png",
+    href: "/shop/muske-pantalone",
   },
   {
     id: 7,
-    title: "PCs",
-    src: "/pc icon.png",
-    href: "/shop/computers"
+    title: "Aksesoari",
+    src: "/aksesoari.png",
+    href: "/shop/aksesoari",
   },
   {
     id: 8,
-    title: "Printers",
-    src: "/printers icon.png",
-    href: "/shop/printers"
-  },
-  {
-    id: 9,
-    title: "Earbuds",
-    src: "/ear buds icon.png",
-    href: "/shop/earbuds"
-  },
-  {
-    id: 10,
-    title: "Head Phones",
-    src: "/headphone icon.png",
-    href: "/shop/headphones"
+    title: "Obuća",
+    src: "/obuca.png",
+    href: "/shop/obuca",
   },
 ];
 
@@ -85,60 +73,53 @@ export const incentives = [
 export const navigation = {
   sale: [
     { name: "Discounts", href: "/discounts" },
-    { name: "New Arrivals", href: "/new-arrivals" }, // Added
-    { name: "Seasonal Offers", href: "/seasonal-offers" }, // Added
+    { name: "New Arrivals", href: "/new-arrivals" },
+    { name: "Seasonal Offers", href: "/seasonal-offers" },
   ],
   about: [
     { name: "About Us", href: "/about" },
     { name: "Careers", href: "/careers" },
     { name: "Company Profile", href: "/company-profile" },
-    { name: "Our Mission", href: "/mission" }, // Added
+    { name: "Our Mission", href: "/mission" },
   ],
   buy: [
     { name: "Loyalty Card", href: "/loyalty-card" },
     { name: "Terms of Use", href: "/terms-of-use" },
     { name: "Privacy Policy", href: "/privacy-policy" },
-    { name: "Return Policy", href: "/return-policy" }, // Added
+    { name: "Return Policy", href: "/return-policy" },
     { name: "Partners", href: "/partners" },
   ],
   help: [
     { name: "Contact Us", href: "/contact" },
     { name: "How to Buy", href: "/how-to-buy" },
     { name: "FAQ", href: "/faq" },
-    { name: "Shipping Information", href: "/shipping-info" }, // Added
-    { name: "Support Center", href: "/support-center" }, // Added
+    { name: "Shipping Information", href: "/shipping-info" },
+    { name: "Support Center", href: "/support-center" },
   ],
 };
-
-
 export const isValidNameOrLastname = (input: string) => {
-  // Simple name or lastname regex format check
   const regex = /^[a-zA-Z\s]+$/;
   return regex.test(input);
 };
 
 export const isValidEmailAddressFormat = (input: string) => {
-  // simple email address format check
   const regex = /^\S+@\S+\.\S+$/;
   return regex.test(input);
 };
 
 export const isValidCardNumber = (input: string) => {
-  // Remove all non-digit characters
   const cleanedInput = input.replace(/[^0-9]/g, "");
-  // test for credit card number between 13 and 19 characters
+
   const regex = /^\d{13,19}$/;
   return regex.test(cleanedInput);
-}
+};
 
 export const isValidCreditCardExpirationDate = (input: string) => {
-  // simple expiration date format check
   const regex = /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/;
   return regex.test(input);
 };
 
 export const isValidCreditCardCVVOrCVC = (input: string) => {
-  // simple CVV or CVC format check
   const regex = /^[0-9]{3,4}$/;
   return regex.test(input);
 };

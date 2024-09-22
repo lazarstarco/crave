@@ -5,13 +5,17 @@ import { FaHouse } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
 
 interface BreadcrumbProps {
-  category?: string; // category is optional and can be a string
+  category?: string;
 }
 
 const toSentenceCase = (text: string | undefined) => {
   if (!text) return "";
 
-  const formattedText = text.replace(/-/g, " ");
+  const formattedText = text
+    .replace(/-/g, " ")
+    .replace("muske", "Muške")
+    .replace("zenske", "Ženske")
+    .replace("obuca", "Obuća");
   return (
     formattedText.charAt(0).toUpperCase() + formattedText.slice(1).toLowerCase()
   );

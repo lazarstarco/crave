@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 import Link from "next/link";
 import React, { type ReactNode } from "react";
 

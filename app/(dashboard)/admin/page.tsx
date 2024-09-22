@@ -9,9 +9,9 @@ const AdminDashboardPage = () => {
       <DashboardSidebar />
       <div className="flex flex-col justify-center ml-5 gap-y-10 w-full max-xl:ml-0 max-xl:px-2 max-xl:mt-5 max-md:gap-y-1">
         <div className="flex justify-between w-full max-md:flex-col max-md:w-full max-md:gap-y-1">
-          <StatsElement header="New categories" count="2" percentage="20"/>
-          <StatsElement header="New products" count="14" percentage="18.3"/>
-          <StatsElement header="New users" count="315" percentage="21.8"/>
+          <StatsElement header="New categories" count="2" percentage="20" />
+          <StatsElement header="New products" count="14" percentage="18.3" />
+          <StatsElement header="New users" count="315" percentage="21.8" />
         </div>
         <div className="w-full bg-slate-950 text-white h-40 flex flex-col justify-center items-center gap-y-2 rounded-3xl">
           <h4 className="text-3xl text-gray-100 max-[400px]:text-2xl">

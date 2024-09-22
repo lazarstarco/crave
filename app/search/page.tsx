@@ -4,11 +4,9 @@ import React from "react";
 interface Props {
   searchParams: { search: string };
 }
-
-
 const SearchPage = async ({ searchParams: { search } }: Props) => {
   const data = await fetch(
-    `http://localhost:3001/api/search?query=${search || ""}`
+    `http://localhost:3001/api/search?query=${search || ""}`,
   );
 
   const products = await data.json();
@@ -39,7 +37,3 @@ const SearchPage = async ({ searchParams: { search } }: Props) => {
 };
 
 export default SearchPage;
-
-/*
-
-*/

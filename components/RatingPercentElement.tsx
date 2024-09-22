@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 import React from "react";
 import { FaStar } from "react-icons/fa6";
 
@@ -41,7 +31,10 @@ const RatingPercentElement = () => {
           5 star
         </a>
         <div className="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-          <div className="h-5 bg-custom-yellow rounded" style={{"width": "70%"}}></div>
+          <div
+            className="h-5 bg-custom-yellow rounded"
+            style={{ width: "70%" }}
+          ></div>
         </div>
         <span className="text-base font-medium text-black dark:text-gray-400">
           70%
@@ -55,7 +48,10 @@ const RatingPercentElement = () => {
           4 star
         </a>
         <div className="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-          <div className="h-5 bg-custom-yellow rounded" style={{"width": "17%"}}></div>
+          <div
+            className="h-5 bg-custom-yellow rounded"
+            style={{ width: "17%" }}
+          ></div>
         </div>
         <span className="text-base font-medium text-black dark:text-gray-400">
           17%
@@ -69,7 +65,10 @@ const RatingPercentElement = () => {
           3 star
         </a>
         <div className="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-          <div className="h-5 bg-custom-yellow rounded" style={{"width": "8%"}}></div>
+          <div
+            className="h-5 bg-custom-yellow rounded"
+            style={{ width: "8%" }}
+          ></div>
         </div>
         <span className="text-base font-medium text-black dark:text-gray-400">
           8%
@@ -83,7 +82,10 @@ const RatingPercentElement = () => {
           2 star
         </a>
         <div className="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-          <div className="h-5 bg-custom-yellow rounded" style={{"width": "4%"}}></div>
+          <div
+            className="h-5 bg-custom-yellow rounded"
+            style={{ width: "4%" }}
+          ></div>
         </div>
         <span className="text-base font-medium text-black dark:text-gray-400">
           4%
@@ -97,7 +99,10 @@ const RatingPercentElement = () => {
           1 star
         </a>
         <div className="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-          <div className="h-5 bg-custom-yellow rounded" style={{"width": "1%"}}></div>
+          <div
+            className="h-5 bg-custom-yellow rounded"
+            style={{ width: "1%" }}
+          ></div>
         </div>
         <span className="text-base font-medium text-black dark:text-gray-400">
           1%

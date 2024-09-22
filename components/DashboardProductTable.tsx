@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 "use client";
 import { nanoid } from "nanoid";
 import Image from "next/image";
@@ -48,7 +38,6 @@ const DashboardProductTable = () => {
 
       <div className="xl:ml-5 w-full max-xl:mt-5 overflow-auto w-full h-[80vh]">
         <table className="table table-md table-pin-cols">
-          {/* head */}
           <thead>
             <tr>
               <th>Product</th>
@@ -58,7 +47,6 @@ const DashboardProductTable = () => {
             </tr>
           </thead>
           <tbody>
-            {/* row 1 */}
             {products &&
               products.map((product) => (
                 <tr key={nanoid()}>
@@ -87,7 +75,6 @@ const DashboardProductTable = () => {
                       </div>
                     </div>
                   </td>
-
                   <td>
                     {product?.inStock ? (
                       <span className="badge badge-success text-white badge-sm">
@@ -111,7 +98,6 @@ const DashboardProductTable = () => {
                 </tr>
               ))}
           </tbody>
-          {/* foot */}
           <tfoot>
             <tr>
               <th>Product</th>

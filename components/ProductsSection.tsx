@@ -1,19 +1,8 @@
-
-
-
-
-
-
-
-
-
-
 import React from "react";
 import ProductItem from "./ProductItem";
 import Heading from "./Heading";
 
 const ProductsSection = async () => {
-  // sending API request for getting all products
   const data = await fetch("http://localhost:3001/api/products");
   const products = await data.json();
   return (

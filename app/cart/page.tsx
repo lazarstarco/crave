@@ -47,7 +47,11 @@ const CartPage = () => {
                       <Image
                         width={192}
                         height={192}
-                        src={product?.image ? `/${product.image}` : "/product_placeholder.jpg"}
+                        src={
+                          product?.image
+                            ? `/${product.image}`
+                            : "/product_placeholder.jpg"
+                        }
                         alt="laptop image"
                         className="h-24 w-24 rounded-md object-cover object-center sm:h-48 sm:w-48"
                       />
@@ -66,12 +70,6 @@ const CartPage = () => {
                               </Link>
                             </h3>
                           </div>
-                          {/* <div className="mt-1 flex text-sm">
-                        <p className="text-gray-500">{product.color}</p>
-                        {product.size ? (
-                          <p className="ml-4 border-l border-gray-200 pl-4 text-gray-500">{product.size}</p>
-                        ) : null}
-                      </div> */}
                           <p className="mt-1 text-sm font-medium text-gray-900">
                             {product.price} RSD
                           </p>
@@ -112,8 +110,6 @@ const CartPage = () => {
                 ))}
               </ul>
             </section>
-
-            {/* Order summary */}
             <section
               aria-labelledby="summary-heading"
               className="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"

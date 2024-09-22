@@ -29,8 +29,8 @@ async function getParticipantsByProductId(req, res) {
       const participants = await prisma.participant.findMany({
         where: { productId },
         include: {
-          user: true, // Assuming there's a relation with the User model
-          product: true, // To include product details if needed
+          user: true,
+          product: true,
         },
       });
 

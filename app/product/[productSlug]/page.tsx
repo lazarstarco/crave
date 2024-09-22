@@ -20,15 +20,13 @@ interface ImageItem {
 }
 
 const SingleProductPage = async ({ params }: SingleProductPageProps) => {
-  // sending API request for a single product with a given product slug
   const data = await fetch(
-    `http://localhost:3001/api/slugs/${params.productSlug}`
+    `http://localhost:3001/api/slugs/${params.productSlug}`,
   );
   const product = await data.json();
 
-  // sending API request for more than 1 product image if it exists
   const imagesData = await fetch(
-    `http://localhost:3001/api/images/${product.id}`
+    `http://localhost:3001/api/images/${product.id}`,
   );
   const images = await imagesData.json();
 
@@ -59,7 +57,7 @@ const SingleProductPage = async ({ params }: SingleProductPageProps) => {
                   src={`/${imageItem.image}`}
                   width={100}
                   height={100}
-                  alt="laptop image"
+                  alt="product image"
                   className="w-auto h-auto"
                 />
               ))}
@@ -77,7 +75,7 @@ const SingleProductPage = async ({ params }: SingleProductPageProps) => {
           </div>
         </div>
         <div className="py-16">
-          <ProductTabs product={product}/>
+          <ProductTabs product={product} />
         </div>
       </div>
     </div>

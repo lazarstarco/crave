@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 import React from "react";
 
 interface CustomButtonProps {
@@ -25,10 +15,8 @@ const CustomButton = ({
   text,
   buttonType,
   customWidth,
-  textSize
+  textSize,
 }: CustomButtonProps) => {
-
-
   return (
     <button
       type={`${buttonType}`}

@@ -11,14 +11,13 @@ const ProductTabs = ({ product }: { product: Product }) => {
 
   const { data: session, status: sessionStatus } = useSession();
 
-  // Fetch participants when the product ID changes or component mounts
   const fetchParticipants = async (id: string) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/api/participants?productId=${id}`
+        `http://localhost:3001/api/participants?productId=${id}`,
       );
       const data = await response.json();
-      setParticipants(data); // Update the participants state
+      setParticipants(data);
     } catch (error) {
       console.error("Error fetching participants:", error);
     }
@@ -26,7 +25,7 @@ const ProductTabs = ({ product }: { product: Product }) => {
 
   useEffect(() => {
     if (product?.id) {
-      fetchParticipants(product.id); // Call fetchParticipants when the product is available
+      fetchParticipants(product.id);
     }
   }, [product?.id]);
 
@@ -39,7 +38,6 @@ const ProductTabs = ({ product }: { product: Product }) => {
       });
 
       if (response.ok) {
-        // Refetch participants to update votes after a successful vote
         fetchParticipants(product.id);
       }
     } catch (error) {
@@ -89,12 +87,10 @@ const ProductTabs = ({ product }: { product: Product }) => {
           <div className="overflow-x-auto">
             <table className="table text-xl text-center max-[500px]:text-base">
               <tbody>
-                {/* row 1 */}
                 <tr>
                   <th>Manufacturer:</th>
                   <td>{product?.manufacturer}</td>
                 </tr>
-                {/* row 2 */}
                 <tr>
                   <th>Category:</th>
                   <td>
@@ -103,7 +99,6 @@ const ProductTabs = ({ product }: { product: Product }) => {
                       : "No category"}
                   </td>
                 </tr>
-                {/* row 3 */}
                 <tr>
                   <th>Color:</th>
                   <td>Silver, LightSlateGray, Blue</td>

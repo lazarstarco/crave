@@ -30,27 +30,24 @@ async function createImage(request, response) {
 
 async function updateImage(request, response) {
   try {
-    const { id } = request.params; // Getting product id from params
+    const { id } = request.params;
     const { productID, image } = request.body;
 
-    // Checking whether photo exists for the given product id
     const existingImage = await prisma.image.findFirst({
       where: {
-        productID: id, // Finding photo with a product id
+        productID: id,
       },
     });
 
-    // if photo doesn't exist, return coresponding status code
     if (!existingImage) {
       return response
         .status(404)
         .json({ error: "Image not found for the provided productID" });
     }
 
-    // Updating photo using coresponding imageID
     const updatedImage = await prisma.image.update({
       where: {
-        imageID: existingImage.imageID, // Using imageID of the found existing image
+        imageID: existingImage.imageID,
       },
       data: {
         productID: productID,
@@ -70,7 +67,7 @@ async function deleteImage(request, response) {
     const { id } = request.params;
     await prisma.image.deleteMany({
       where: {
-        productID: String(id), // Converting id to string
+        productID: String(id),
       },
     });
     return response.status(204).send();

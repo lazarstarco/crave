@@ -52,7 +52,7 @@ const AdminSingleOrder = () => {
   useEffect(() => {
     const fetchOrderData = async () => {
       const response = await fetch(
-        `http://localhost:3001/api/orders/${params?.id}`
+        `http://localhost:3001/api/orders/${params?.id}`,
       );
       const data: Order = await response.json();
       setOrder(data);
@@ -60,7 +60,7 @@ const AdminSingleOrder = () => {
 
     const fetchOrderProducts = async () => {
       const response = await fetch(
-        `http://localhost:3001/api/order-product/${params?.id}`
+        `http://localhost:3001/api/order-product/${params?.id}`,
       );
       const data: OrderProduct[] = await response.json();
       setOrderProducts(data);
@@ -99,7 +99,7 @@ const AdminSingleOrder = () => {
       }
 
       fetch(`http://localhost:3001/api/orders/${order?.id}`, {
-        method: "PUT", // or 'PUT'
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
@@ -113,7 +113,7 @@ const AdminSingleOrder = () => {
           }
         })
         .catch((error) =>
-          toast.error("There was an error while updating a order")
+          toast.error("There was an error while updating a order"),
         );
     } else {
       toast.error("Please fill all fields");
@@ -127,11 +127,11 @@ const AdminSingleOrder = () => {
 
     fetch(
       `http://localhost:3001/api/order-product/${order?.id}`,
-      requestOptions
+      requestOptions,
     ).then((response) => {
       fetch(
         `http://localhost:3001/api/orders/${order?.id}`,
-        requestOptions
+        requestOptions,
       ).then((response) => {
         toast.success("Order deleted successfully");
         router.push("/admin/orders");
@@ -347,7 +347,11 @@ const AdminSingleOrder = () => {
           {orderProducts?.map((product) => (
             <div className="flex items-center gap-x-4" key={product?.id}>
               <Image
-                src={product?.product?.mainImage ? `/${product?.product?.mainImage}` : "/product_placeholder.jpg"}
+                src={
+                  product?.product?.mainImage
+                    ? `/${product?.product?.mainImage}`
+                    : "/product_placeholder.jpg"
+                }
                 alt={product?.product?.title}
                 width={50}
                 height={50}

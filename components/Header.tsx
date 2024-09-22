@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 "use client";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -33,7 +23,6 @@ const Header = () => {
     toast.success("Logout successful!");
   };
 
-  // getting all wishlist items by user id
   const getWishlistByUserId = async (id: string) => {
     const response = await fetch(`http://localhost:3001/api/wishlist/${id}`, {
       cache: "no-store",
@@ -56,13 +45,12 @@ const Header = () => {
         image: item?.product?.mainImage,
         slug: item?.product?.slug,
         stockAvailabillity: item?.product?.inStock,
-      })
+      }),
     );
 
     setWishlist(productArray);
   };
 
-  // getting user by email so I can get his user id
   const getUserByEmail = async () => {
     if (session?.user?.email) {
       fetch(`http://localhost:3001/api/users/email/${session?.user?.email}`, {
@@ -93,7 +81,7 @@ const Header = () => {
               alt="cRAVE logo"
               height={128}
               width={128}
-              objectFit="contain" // Keep aspect ratio and prevent distortion
+              objectFit="contain"
               className="relative"
             />
           </a>
@@ -106,7 +94,7 @@ const Header = () => {
       )}
       {pathname.startsWith("/admin") === true && (
         <div className="flex justify-between h-32 items-center px-16 max-[1320px]:px-10  max-w-screen-2xl mx-auto max-[400px]:px-5">
-           <a
+          <a
             className="flex items-center justify-center w-[250px] h-full"
             href="/"
           >
@@ -115,7 +103,7 @@ const Header = () => {
               alt="cRAVE logo"
               height={128}
               width={128}
-              objectFit="contain" // Keep aspect ratio and prevent distortion
+              objectFit="contain"
               className="relative"
             />
           </a>

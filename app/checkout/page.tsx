@@ -5,7 +5,13 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { isValidCardNumber, isValidCreditCardCVVOrCVC, isValidCreditCardExpirationDate, isValidEmailAddressFormat, isValidNameOrLastname } from "@/lib/utils";
+import {
+  isValidCardNumber,
+  isValidCreditCardCVVOrCVC,
+  isValidCreditCardExpirationDate,
+  isValidEmailAddressFormat,
+  isValidNameOrLastname,
+} from "@/lib/utils";
 
 const CheckoutPage = () => {
   const [checkoutForm, setCheckoutForm] = useState({
@@ -71,7 +77,7 @@ const CheckoutPage = () => {
 
       if (!isValidCreditCardExpirationDate(checkoutForm.expirationDate)) {
         toast.error(
-          "You entered invalid format for credit card expiration date"
+          "You entered invalid format for credit card expiration date",
         );
         return;
       }
@@ -81,7 +87,6 @@ const CheckoutPage = () => {
         return;
       }
 
-      // sending API request for creating a order
       const response = fetch("http://localhost:3001/api/orders", {
         method: "POST",
         headers: {
@@ -106,7 +111,7 @@ const CheckoutPage = () => {
         .then((res) => res.json())
         .then((data) => {
           const orderId: string = data.id;
-          // for every product in the order we are calling addOrderProduct function that adds fields to the customer_order_product table
+
           for (let i = 0; i < products.length; i++) {
             let productId: string = products[i].id;
             addOrderProduct(orderId, products[i].id, products[i].amount);
@@ -144,11 +149,10 @@ const CheckoutPage = () => {
   const addOrderProduct = async (
     orderId: string,
     productId: string,
-    productQuantity: number
+    productQuantity: number,
   ) => {
-    // sending API POST request for the table customer_order_product that does many to many relatioship for order and product
     const response = await fetch("http://localhost:3001/api/order-product", {
-      method: "POST", // or 'PUT'
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -160,8 +164,6 @@ const CheckoutPage = () => {
     });
   };
 
-  
-
   useEffect(() => {
     if (products.length === 0) {
       toast.error("You don't have items in your cart");
@@ -172,7 +174,6 @@ const CheckoutPage = () => {
   return (
     <div className="bg-white">
       <SectionTitle title="Checkout" path="Home | Cart | Checkout" />
-      {/* Background color split screen for large screens */}
       <div
         className="hidden h-full w-1/2 bg-white lg:block"
         aria-hidden="true"
@@ -207,7 +208,11 @@ const CheckoutPage = () => {
                   className="flex items-start space-x-4 py-6"
                 >
                   <Image
-                    src={product?.image ? `/${product?.image}` : "/product_placeholder.jpg"}
+                    src={
+                      product?.image
+                        ? `/${product?.image}`
+                        : "/product_placeholder.jpg"
+                    }
                     alt={product?.title}
                     width={80}
                     height={80}

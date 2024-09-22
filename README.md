@@ -21,8 +21,6 @@ DATABASE_URL="mysql://root:root@localhost:3306/oopim"
 ```
 
 <p>8. Now you need to open your terminal of choice in the root folder of the project and write:</p>
-
-
 ```
 npm install
 ```

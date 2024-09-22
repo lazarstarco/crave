@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 "use client";
 import { nanoid } from "nanoid";
 import Image from "next/image";
@@ -35,7 +25,6 @@ const DashboardProductTable = () => {
 
       <div className="xl:ml-5 w-full max-xl:mt-5 overflow-auto w-full h-[80vh]">
         <table className="table table-md table-pin-cols">
-          {/* head */}
           <thead>
             <tr>
               <th>Image</th>
@@ -44,7 +33,6 @@ const DashboardProductTable = () => {
             </tr>
           </thead>
           <tbody>
-            {/* row 1 */}
             {participants &&
               participants.map((participant) => (
                 <tr key={nanoid()}>
@@ -80,7 +68,6 @@ const DashboardProductTable = () => {
                 </tr>
               ))}
           </tbody>
-          {/* foot */}
           <tfoot>
             <tr>
               <th>Image</th>

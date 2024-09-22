@@ -76,7 +76,7 @@ model customer_order_product {
 model Category {
   id       String    @id @default(uuid())
   name     String    @unique
-  products Product[] // Define a one-to-many relationship
+  products Product[]
 }
 
 model Wishlist {
@@ -96,5 +96,5 @@ model Participant {
   votes     Int     @default(0)
   mainImage String
 
-  @@unique([userId, productId]) // Ensure a user can only participate with a product once
+  @@unique([userId, productId])
 }

@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 "use client";
 
 import React from "react";
@@ -19,9 +9,10 @@ interface QuantityInputProps {
   setQuantityCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const QuantityInput = ({quantityCount, setQuantityCount} : QuantityInputProps) => {
-
-
+const QuantityInput = ({
+  quantityCount,
+  setQuantityCount,
+}: QuantityInputProps) => {
   const handleQuantityChange = (actionName: string): void => {
     if (actionName === "plus") {
       setQuantityCount(quantityCount + 1);

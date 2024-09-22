@@ -1,7 +1,3 @@
-
-
-
-
 import Image from "next/image";
 import React from "react";
 import { FaStar } from "react-icons/fa6";
@@ -11,8 +7,8 @@ const SingleReview = () => {
     <article className="w-[900px] mx-auto py-10 max-[1000px]:w-[700px] max-[750px]:w-[90%]">
       <div className="flex items-center mb-4">
         <Image
-        width={40}
-        height={40}
+          width={40}
+          height={40}
           className="w-10 h-10 me-4 rounded-full"
           src="/randomuser.jpg"
           alt="user image"

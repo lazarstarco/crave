@@ -1,21 +1,9 @@
-
-
-
-
-
-
-
-
-
-
 import React from "react";
 import { MdDashboard } from "react-icons/md";
 import { FaListOl, FaTable } from "react-icons/fa6";
 import { FaRegUser } from "react-icons/fa6";
 import { FaBagShopping } from "react-icons/fa6";
 import { MdCategory } from "react-icons/md";
-
-
 import Link from "next/link";
 
 const DashboardSidebar = () => {

@@ -18,7 +18,7 @@ const DashboardNewCategoryPage = () => {
           name: convertCategoryNameToURLFriendly(categoryInput.name),
         }),
       };
-      // sending API request for creating new cateogry
+
       fetch(`http://localhost:3001/api/categories`, requestOptions)
         .then((response) => {
           if (response.status === 201) {

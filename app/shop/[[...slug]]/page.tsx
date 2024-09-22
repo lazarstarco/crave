@@ -9,12 +9,13 @@ import {
   SortBy,
 } from "@/components";
 import React from "react";
-
-
 const improveCategoryText = (text: string): string => {
   if (text.indexOf("-") !== -1) {
-    let textArray = text.split("-");
-
+    let textArray = text
+      .replace("muske", "Muške")
+      .replace("zenske", "Ženske")
+      .replace("obuca", "Obuća")
+      .split("-");
     return textArray.join(" ");
   } else {
     return text;
@@ -22,7 +23,6 @@ const improveCategoryText = (text: string): string => {
 };
 
 const ShopPage = (slug: any) => {
-  
   return (
     <div className="text-black bg-zinc-200">
       <div className=" max-w-screen-2xl mx-auto px-10 max-sm:px-5">

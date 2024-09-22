@@ -6,10 +6,9 @@ import toast from "react-hot-toast";
 const Participants: React.FC = () => {
   const [participants, setParticipants] = useState<Participant[]>([]);
   const [currentProductTab, setCurrentProductTab] = useState<number>(2);
-  const { data: session } = useSession(); // Access the session data
+  const { data: session } = useSession();
 
   useEffect(() => {
-    // Fetch participants when component mounts
     async function fetchParticipants() {
       const response = await fetch("/api/participants");
       const data = await response.json();
@@ -34,8 +33,8 @@ const Participants: React.FC = () => {
           prevParticipants.map((participant) =>
             participant.id === participantId
               ? { ...participant, votes: participant.votes + 1 }
-              : participant
-          )
+              : participant,
+          ),
         );
       } else {
         toast.error(`Failed to vote: ${result.message}`);

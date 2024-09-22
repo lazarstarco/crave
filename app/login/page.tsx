@@ -10,11 +10,10 @@ import { FcGoogle } from "react-icons/fc";
 const LoginPage = () => {
   const router = useRouter();
   const [error, setError] = useState("");
-  // const session = useSession();
+
   const { data: session, status: sessionStatus } = useSession();
 
   useEffect(() => {
-    // if user has already logged in redirect to home page
     if (sessionStatus === "authenticated") {
       router.replace("/");
     }

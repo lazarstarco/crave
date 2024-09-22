@@ -85,7 +85,6 @@ const DashboardSingleUserPage = ({
   };
 
   useEffect(() => {
-    // sending API request for a single user
     fetch(`http://localhost:3001/api/users/${id}`)
       .then((res) => {
         return res.json();
