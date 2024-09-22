@@ -358,7 +358,6 @@ async function searchProducts(request, response) {
 
 async function getProductById(request, response) {
   const { id } = request.params;
-  console.log(JSON.stringify(request));
   const product = await prisma.product.findUnique({
     where: {
       id: id,
