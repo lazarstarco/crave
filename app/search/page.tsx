@@ -6,7 +6,7 @@ interface Props {
 }
 const SearchPage = async ({ searchParams: { search } }: Props) => {
   const data = await fetch(
-    `http://localhost:3001/api/search?query=${search || ""}`,
+    `http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/search?query=${search || ""}`,
   );
 
   const products = await data.json();

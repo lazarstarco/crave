@@ -14,7 +14,7 @@ const ProductTabs = ({ product }: { product: Product }) => {
   const fetchParticipants = async (id: string) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/api/participants?productId=${id}`,
+        `http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/participants?productId=${id}`,
       );
       const data = await response.json();
       setParticipants(data);
@@ -31,7 +31,7 @@ const ProductTabs = ({ product }: { product: Product }) => {
 
   const handleVote = async (participantId: string) => {
     try {
-      const response = await fetch("http://localhost:3001/api/participants", {
+      const response = await fetch("http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/participants", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ participantId }),

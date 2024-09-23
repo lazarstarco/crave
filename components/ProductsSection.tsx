@@ -3,7 +3,7 @@ import ProductItem from "./ProductItem";
 import Heading from "./Heading";
 
 const ProductsSection = async () => {
-  const data = await fetch("http://localhost:3001/api/products");
+  const data = await fetch("http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/products");
   const products = await data.json();
   return (
     <div className="bg-slate-950 border-t-4 border-white">

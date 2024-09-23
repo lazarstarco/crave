@@ -21,12 +21,12 @@ interface ImageItem {
 
 const SingleProductPage = async ({ params }: SingleProductPageProps) => {
   const data = await fetch(
-    `http://localhost:3001/api/slugs/${params.productSlug}`,
+    `http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/slugs/${params.productSlug}`,
   );
   const product = await data.json();
 
   const imagesData = await fetch(
-    `http://localhost:3001/api/images/${product.id}`,
+    `http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/images/${product.id}`,
   );
   const images = await imagesData.json();
 

@@ -27,7 +27,7 @@ const DashboardSingleUserPage = ({
     const requestOptions = {
       method: "DELETE",
     };
-    fetch(`http://localhost:3001/api/users/${id}`, requestOptions)
+    fetch(`http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/users/${id}`, requestOptions)
       .then((response) => {
         if (response.status === 204) {
           toast.success("User deleted successfully");
@@ -62,7 +62,7 @@ const DashboardSingleUserPage = ({
             role: userInput.role,
           }),
         };
-        fetch(`http://localhost:3001/api/users/${id}`, requestOptions)
+        fetch(`http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/users/${id}`, requestOptions)
           .then((response) => {
             if (response.status === 200) {
               return response.json();
@@ -85,7 +85,7 @@ const DashboardSingleUserPage = ({
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/users/${id}`)
+    fetch(`http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/users/${id}`)
       .then((res) => {
         return res.json();
       })

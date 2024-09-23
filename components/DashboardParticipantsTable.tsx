@@ -7,7 +7,7 @@ const DashboardProductTable = () => {
   const [participants, setParticipants] = useState<Participant[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/participants", { cache: "no-store" })
+    fetch("http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/participants", { cache: "no-store" })
       .then((res) => {
         return res.json();
       })

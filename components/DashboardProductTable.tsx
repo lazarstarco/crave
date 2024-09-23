@@ -9,7 +9,7 @@ const DashboardProductTable = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/products?mode=admin", {
+    fetch("http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/products?mode=admin", {
       cache: "no-store",
     })
       .then((res) => {

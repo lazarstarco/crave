@@ -23,7 +23,7 @@ const DashboardSingleCategory = ({
       method: "DELETE",
     };
 
-    fetch(`http://localhost:3001/api/categories/${id}`, requestOptions)
+    fetch(`http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/categories/${id}`, requestOptions)
       .then((response) => {
         if (response.status === 204) {
           toast.success("Category deleted successfully");
@@ -47,7 +47,7 @@ const DashboardSingleCategory = ({
         }),
       };
 
-      fetch(`http://localhost:3001/api/categories/${id}`, requestOptions)
+      fetch(`http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/categories/${id}`, requestOptions)
         .then((response) => {
           if (response.status === 200) {
             return response.json();
@@ -66,7 +66,7 @@ const DashboardSingleCategory = ({
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/categories/${id}`)
+    fetch(`http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/categories/${id}`)
       .then((res) => {
         return res.json();
       })

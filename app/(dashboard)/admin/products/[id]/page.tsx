@@ -26,7 +26,7 @@ const DashboardProductDetails = ({
     const requestOptions = {
       method: "DELETE",
     };
-    fetch(`http://localhost:3001/api/products/${id}`, requestOptions)
+    fetch(`http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/products/${id}`, requestOptions)
       .then((response) => {
         if (response.status !== 204) {
           if (response.status === 400) {
@@ -63,7 +63,7 @@ const DashboardProductDetails = ({
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(product),
     };
-    fetch(`http://localhost:3001/api/products/${id}`, requestOptions)
+    fetch(`http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/products/${id}`, requestOptions)
       .then((response) => {
         if (response.status === 200) {
           return response.json();
@@ -82,7 +82,7 @@ const DashboardProductDetails = ({
     formData.append("uploadedFile", file);
 
     try {
-      const response = await fetch("http://localhost:3001/api/main-image", {
+      const response = await fetch("http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/main-image", {
         method: "POST",
         body: formData,
       });
@@ -99,7 +99,7 @@ const DashboardProductDetails = ({
   };
 
   const fetchProductData = async () => {
-    fetch(`http://localhost:3001/api/products/${id}`)
+    fetch(`http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/products/${id}`)
       .then((res) => {
         return res.json();
       })
@@ -107,7 +107,7 @@ const DashboardProductDetails = ({
         setProduct(data);
       });
 
-    const imagesData = await fetch(`http://localhost:3001/api/images/${id}`, {
+    const imagesData = await fetch(`http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/images/${id}`, {
       cache: "no-store",
     });
     const images = await imagesData.json();
@@ -115,7 +115,7 @@ const DashboardProductDetails = ({
   };
 
   const fetchCategories = async () => {
-    fetch(`http://localhost:3001/api/categories`)
+    fetch(`http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/categories`)
       .then((res) => {
         return res.json();
       })
