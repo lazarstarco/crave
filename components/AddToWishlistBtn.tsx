@@ -18,12 +18,12 @@ const AddToWishlistBtn = ({ product, slug }: AddToWishlistBtnProps) => {
 
   const addToWishlistFun = async () => {
     if (session?.user?.email) {
-      fetch(`http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/users/email/${session?.user?.email}`, {
+      fetch(`http://ec2-3-66-85-50.eu-central-1.compute.amazonaws.com:3001/api/users/email/${session?.user?.email}`, {
         cache: "no-store",
       })
         .then((response) => response.json())
         .then((data) =>
-          fetch("http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/wishlist", {
+          fetch("http://ec2-3-66-85-50.eu-central-1.compute.amazonaws.com:3001/api/wishlist", {
             method: "POST",
             headers: {
               Accept: "application/json, text/plain, */*",
@@ -51,13 +51,13 @@ const AddToWishlistBtn = ({ product, slug }: AddToWishlistBtnProps) => {
 
   const removeFromWishlistFun = async () => {
     if (session?.user?.email) {
-      fetch(`http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/users/email/${session?.user?.email}`, {
+      fetch(`http://ec2-3-66-85-50.eu-central-1.compute.amazonaws.com:3001/api/users/email/${session?.user?.email}`, {
         cache: "no-store",
       })
         .then((response) => response.json())
         .then((data) => {
           return fetch(
-            `http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/wishlist/${data?.id}/${product?.id}`,
+            `http://ec2-3-66-85-50.eu-central-1.compute.amazonaws.com:3001/api/wishlist/${data?.id}/${product?.id}`,
             {
               method: "DELETE",
             },
@@ -72,13 +72,13 @@ const AddToWishlistBtn = ({ product, slug }: AddToWishlistBtnProps) => {
 
   const isInWishlist = async () => {
     if (session?.user?.email) {
-      fetch(`http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/users/email/${session?.user?.email}`, {
+      fetch(`http://ec2-3-66-85-50.eu-central-1.compute.amazonaws.com:3001/api/users/email/${session?.user?.email}`, {
         cache: "no-store",
       })
         .then((response) => response.json())
         .then((data) => {
           return fetch(
-            `http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/wishlist/${data?.id}/${product?.id}`,
+            `http://ec2-3-66-85-50.eu-central-1.compute.amazonaws.com:3001/api/wishlist/${data?.id}/${product?.id}`,
           );
         })
         .then((response) => response.json())

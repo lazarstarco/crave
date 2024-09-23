@@ -7,7 +7,7 @@ const AdminOrders = () => {
 
   useEffect(() => {
     const fetchOrders = async () => {
-      const response = await fetch("http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/orders");
+      const response = await fetch("http://ec2-3-66-85-50.eu-central-1.compute.amazonaws.com:3001/api/orders");
       const data = await response.json();
       setOrders(data);
     };

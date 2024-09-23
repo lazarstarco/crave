@@ -18,7 +18,7 @@ export default async function Layout({
 
   let email: string = await session?.user?.email;
 
-  const res = await fetch(`http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/users/email/${email}`);
+  const res = await fetch(`http://ec2-3-66-85-50.eu-central-1.compute.amazonaws.com:3001/api/users/email/${email}`);
   const data = await res.json();
 
   if (data.role !== "admin") {

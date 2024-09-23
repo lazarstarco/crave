@@ -25,7 +25,7 @@ const Products = async ({ slug }: any) => {
   }
 
   const data = await fetch(
-    `http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/products?filters[price][$lte]=${
+    `http://ec2-3-66-85-50.eu-central-1.compute.amazonaws.com:3001/api/products?filters[price][$lte]=${
       slug?.searchParams?.price || 100000
     }&filters[rating][$gte]=${
       Number(slug?.searchParams?.rating) || 0

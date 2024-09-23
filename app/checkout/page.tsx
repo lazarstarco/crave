@@ -87,7 +87,7 @@ const CheckoutPage = () => {
         return;
       }
 
-      const response = fetch("http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/orders", {
+      const response = fetch("http://ec2-3-66-85-50.eu-central-1.compute.amazonaws.com:3001/api/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -151,7 +151,7 @@ const CheckoutPage = () => {
     productId: string,
     productQuantity: number,
   ) => {
-    const response = await fetch("http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/order-product", {
+    const response = await fetch("http://ec2-3-66-85-50.eu-central-1.compute.amazonaws.com:3001/api/order-product", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

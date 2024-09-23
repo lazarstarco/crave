@@ -24,7 +24,7 @@ const Header = () => {
   };
 
   const getWishlistByUserId = async (id: string) => {
-    const response = await fetch(`http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/wishlist/${id}`, {
+    const response = await fetch(`http://ec2-3-66-85-50.eu-central-1.compute.amazonaws.com:3001/api/wishlist/${id}`, {
       cache: "no-store",
     });
     const wishlist = await response.json();
@@ -53,7 +53,7 @@ const Header = () => {
 
   const getUserByEmail = async () => {
     if (session?.user?.email) {
-      fetch(`http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/users/email/${session?.user?.email}`, {
+      fetch(`http://ec2-3-66-85-50.eu-central-1.compute.amazonaws.com:3001/api/users/email/${session?.user?.email}`, {
         cache: "no-store",
       })
         .then((response) => response.json())

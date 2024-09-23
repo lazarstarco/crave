@@ -8,7 +8,7 @@ const DashboardUsers = () => {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    fetch("http://ec2-3-79-230-202.eu-central-1.compute.amazonaws.com:3001/api/users")
+    fetch("http://ec2-3-66-85-50.eu-central-1.compute.amazonaws.com:3001/api/users")
       .then((res) => {
         return res.json();
       })
