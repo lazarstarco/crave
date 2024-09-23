@@ -81,3 +81,20 @@ CREATE TABLE `Wishlist` (
     CONSTRAINT `Wishlist_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT `Wishlist_productId_fkey` FOREIGN KEY (`productId`) REFERENCES `Product`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `Participant` (
+    `id` VARCHAR(191) NOT NULL,
+    `productId` VARCHAR(191) NOT NULL,
+    `votes` INTEGER NOT NULL DEFAULT 0,
+    `userId` VARCHAR(191) NOT NULL,
+    `mainImage` VARCHAR(191) NOT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE INDEX `Participant_userId_productId_key` (`userId`, `productId`)
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- AddForeignKey
+ALTER TABLE `Participant` ADD CONSTRAINT `Participant_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `Participant` ADD CONSTRAINT `Participant_productId_fkey` FOREIGN KEY (`productId`) REFERENCES `Product`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
